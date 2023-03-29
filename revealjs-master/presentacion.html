@@ -1,607 +1,283 @@
-    <html>
-
-     <head>
-      <link rel="stylesheet" href="css/reveal.css">
-      <link rel="stylesheet" href="css/theme/white.css">
-      <!-- Code syntax highlighting -->
-      <link rel="stylesheet" href="lib/css/zenburn.css">
-     </head>
-
-     <body>
-
-     <div class="reveal">
-      <div class="slides">
-
-<!--PORTADA -->
- <section>
- <h1><font color="red">Aprendiendo reveal.js</font></h1>
- <hr>
- <h2>Francisco D. Igual y Fernando Castro</h2>
- <hr>
- <h3>MLD - PMED</h3>
-</section>
-<!--FIN PORTADA -->
-
-<!--INDICE -->
-<section id="indice">
-<h2>Indice de contenidos</h2>
-
-<ol>
-<li><a href="#/introduccion">Introducci&oacute;n</a></li>
-<li><a href="#/estructura_basica">Estructura b&aacute;sica</a></li>
-<li><a href="#/estructura_con_secciones">Creaci&oacute;n de secciones</a></li>
-<!--<ul>
- <li><a href="#/estructura_con_titulo">P&aacute;gina de t&iacute;tulo</a></li>
-</ul>-->
-<li><a href="#/ejemplo_md">Integraci&oacute;n con Markdown</a></li>
-<li><a href="#/configuracion_global">Configuraci&oacute;n global</a></li>
-<li><a href="#/configuracion_slides">Configuraci&oacute;n de transparencias</a></li>
-<li><a href="#/transiciones">Transiciones</a></li>
-<li><a href="#/navegacion">Navegaci&oacute;n</a></li>
-<li><a href="#/fragmentos">Fragmentos</a></li>
-<li><a href="#/enlaces">Documentaci&oacute;n</a></li>
-</ol>
-
-</section>
-<!--FIN INDICE -->
-
-
-<!--INTRODUCCIÓN -->
-<section>
- <section id="introduccion">
-  <h2>Introducci&oacute;n</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-   ## Reveal.js
-
-   * Framework para desarollo de presentaciones web
-   * Basado en Javascript + CSS. Genera HTML5
-   * Visualmente atractivas y portables
-   * Requisitos: navegador web moderno
-     * Ej.: Chrome, Firefox, Edge, Opera, ...
-   * Extensible y configurable
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-   ## Reveal.js
-
-   * Permite slides anidadas
-   * Generación de transparencias con Markdown
-   * Exportación a PDF
-   * Notas para el ponente
-   * [Documentación adicional](https://github.com/hakimel/reveal.js/blob/master/README.md)
-  </script>
- </section>
-
- <section data-markdown>
-   <script type="text/template">
-    ### Reveal.js vs. Powerpoint:
-
-    |Pros|Contras|
-    |-----|-----|
-    |+ Compatibilidad|+ Dificultad|
-    |+ Portabilidad|- Versatilidad|
-
-    * Existen entornos web ([slides.com](http://slides.com)) para facilitar el trabajo
-    </script>
-  </section>
-
-  <section data-markdown>
-    <script type="text/template">
-    ### Reveal.js vs. Markdown:
-
-    |Pros|Contras|
-    |-----|-----|
-    |Personalizaci&oacute;n|Dificultad|
-    |*pandoc* innecesario||
-    </script>
-  </section>
-     
-</section>
-<!--FIN INTRODUCCIÓN -->
-
-<!--ESTRUCTURA BASICA-->
-<section>
- <section id="estructura_basica">
-  <h2>Estructura b&aacute;sica de un documento reveal.js</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-   ## Documento HTML5 básico
-
-```
 <html>
+
 <head>
- <link rel="stylesheet" href="css/reveal.css">
- <link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
 </head>
+
 <body>
- <div class="reveal">
- <div class="slides">
-  <section>Transparencia 1</section>
-  <section>Transparencia 2</section>
- </div>
- </div>
-</body>
-</html>
-```
-
-* Además, hay que inicializar la biblioteca *reveal.js*
- * Lo veremos en **ejemplo1_plantilla_basica.html**
-
-  </script>
- </section>
-</section>
-<!--FIN ESTRUCTURA BASICA-->
-
-<!--ESTRUCTURA CON SECCIONES-->
-<section>
- <section id="estructura_con_secciones">
-  <h2>Estructura con secciones</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-   ## Añadiendo secciones 
-
-```
-...
-<section>
- <h3>Esta es una transparencia horizontal única</h3>
-</section>
-
-<section>
- <section><h3>Esta es una transparencia horizontal con otras verticales</h3></section>
- <section>Transparencia vertical 1</section>
- <section>Transparencia vertical 2</section>
-</section>
-...
-```
-
-* Es posible anidar secciones (horizontales y verticales)
-* Ejemplo: **ejemplo2_plantilla_con_secciones.html**
-
-  </script>
- </section>
-</section>
-<!--FIN ESTRUCTURA CON SECCIONES-->
-
-
-<!--PAGINA DE TITULO-->
-<section>
- <section id="estructura_con_titulo">
-  <h2>Añadiendo una página de título</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-   ## Añadiendo una portada 
-
-```
-...
-<section>
- <h1><font color="red">Aprendiendo reveal.js</font></h1>
- <hr>
- <h2>Francisco D. Igual y Fernando Castro</h2>
- <hr>
- <h3>MLD - PMED</h3>
-</section>
-...
-```
-
-* Es posible usar *cualquier etiqueta válida* HTML en cualquier transparencia
-* Ejemplo: [ejemplo3_titulo.html](ejemplo3_titulo.html)
-
-  </script>
- </section>
-</section>
-<!--FIN PAGINA DE TITULO-->
-
-
-<!--MARKDOWN-->
-<section>
- <section id="ejemplo_md">
-  <h2>Creación de slides con Markdown</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-   ## Creación de slides con Markdown (I)
-
-```
-<section>
- <section data-markdown> 
- < script type="text/template">
-## Transparencia escrita en Markdown
-
-* Primer item
-* Segundo item
-* Lista anidada
-* *Tercer item (en cursiva)*
- </ script>
- </section>
-</section>
-...
-```
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Creación de slides con Markdown (II)
-
-* Es posible utilizar Markdown para escribir nuestras slides
- * Podemos utilizar cualquier construcción Markdown válida
-* Ejemplo: [ejemplo4_markdown.html](ejemplo4_markdown.html)
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Markdown desde un fichero externo
-```
-...
-<section data-markdown="transparencia.md">
-</section>
-...
-```
-* Podemos editar el contenido de la transparencia en un fichero externo
-* Necesario un servidor web
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Markdown. Atributos
-```
-...
-## Transparencia escrita en Markdown con atributos
-
-* Primer item <!-- .element: class="fragment" data-fragment-index="2" -->
-* Segundo item <!-- .element: class="fragment" data-fragment-index="3" -->
- * Lista anidada <!-- .element: class="fragment" data-fragment-index="3" -->
-* *Tercer item (en cursiva)* <!-- .element: class="fragment" data-fragment-index="4" -->
-* **Cuarto item (en negrita)** <!-- .element: class="fragment" data-fragment-index="5" -->
-...
-```
-* Configuración del comportamiento de elementos específicos
-* Ejemplo: [ejemplo6_markdown_atributos.html](ejemplo6_markdown_atributos.html)
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Modificando el aspecto desde Markdown
-```
-<!-- .slide: data-background="#ff0000" -->
-* Primer item <!-- .element: class="fragment" data-fragment-index="2" -->
-* Segundo item <!-- .element: class="fragment" data-fragment-index="3" -->
- * Lista anidada <!-- .element: class="fragment" data-fragment-index="3" -->
-* Tercer item (en cursiva)* <!-- .element: class="fragment" data-fragment-index="4" -->
-* **Cuarto item (en negrita)** <!-- .element: class="fragment" data-fragment-index="5" -->
-```
-* Desde Markdown, también podemos modificar el aspecto global de una transparencia
-* Ejemplo: [ejemplo7_markdown_atributos_slide.html](ejemplo7_markdown_atributos_slide.html)
-  </script>
- </section>
-
-</section>
-
-<!--FIN MARKDOWN-->
-
-
-<!--CONFIGURACION GLOBAL -->
-<section>
- <section id="configuracion_global">
-  <h2>Configuraci&oacute;n global</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Configuración global
-```
-<script src="lib/js/head.min.js"></ script >
-<script src="js/reveal.js"></ script >
-
-<script>
- Reveal.initialize({
-  // Mostrar numero de slide.
-  slideNumber: true,
-
-  // Milisegundos entre transiciones automaticas de slides.
-  autoSlide: 2000,
-
-  // Tipo de transicion.
-  transition: 'zoom',
-
-  dependencies: [
-  // Para interpretar Markdown en los elementos <section>
-  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
-  ]
-  });
-</ script >
-```
-* Más información en la documentación de reveal.js
-* Ejemplo: [ejemplo8_configuracion.html](ejemplo8_configuracion.html)
-  </script>
- </section>
-</section>
-
-<!--FIN CONFIGURACION GLOBAL -->
-
-<!--CONFIGURACION DE TRANSPARENCIA-->
-<section>
- <section id="configuracion_slides">
-  <h2>Configuraci&oacute;n de transparencias</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Fondo de transparencias. Color
-
-```
-<section data-background-color="#ff0000">
-    <h2>Color</h2>
-</section>
-```
-
-* Modificación para una única transparencia
-* Ejemplo: [ejemplo9_background.html](ejemplo9_background.html)
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Fondo de transparencias. Imagen
-
-```
-<section data-background-image="http://example.com/image.png">
-    <h2>Imagen</h2>
-</section>
-<section data-background-image="http://example.com/image.png" data-background-size="100px" data-background-repeat="repeat">
-    <h2>Esta imagen se escala a 100px y se repite</h2>
-</section>
-```
-
-* Modificación para una única transparencia
-* Ejemplo: [ejemplo9_background.html](ejemplo9_background.html)
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Opciones de fondo
-
-| Atributo | Def. | Descripción |
-| -- | -- | -- |
-| data-background-image | - | URL de la imagen |
-| data-background-size | cover | Tamaño de la imagen |
-| data-background-position | center | Posición de la imagen |
-| data-background-repeat | no-repeat | Repetición |
-
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Fondo de transparencias. Vídeo
-
-```
-<section data-background-video="https://enlace.a.video.mp4" data-background-video-loop data-background-video-muted>
-    <h2>Vídeo</h2>
-</section>
-```
-
-* Modificación para una única transparencia
-* Ejemplo: [ejemplo10_video_background.html](ejemplo10_video_background.html)
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Opciones de fondo
-
-| Atributo | Def. | Descripción |
-| -- | -- | -- |
-| data-background-video | - | Videos (separados por ,) |
-| data-background-video-loop | false | Repetición |
-| data-background-video-muted | false | Silencio |
-
-  </script>
- </section>
-
-
-</section>
-
-<!--FIN CONFIGURACION DE TRANSPARENCIA-->
-
-
-<!--TRANSICIONES-->
-<section>
- <section id="transiciones">
-  <h2>Transiciones</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-
-### Transiciones (I)
-
-* Configurable a nivel global a través de la opción `transition`
-* A nivel de slide, usando el atributo `data-transition`
-
-```
-<section data-transition="zoom">
-    <h2>This slide will override the presentation transition and zoom!</h2>
-</section>
-
-<section data-transition-speed="fast">
-    <h2>Choose from three transition speeds: default, fast or slow!</h2>
-</section>
-```
-  </script>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-
-### Transiciones (II)
-
-* Es posible usar diferentes transiciones de entrada y salida para la misma slide:
-
-```
-<section data-transition="slide">
-    The train goes on …
-</section>
-<section data-transition="slide-in fade-out">
-    and stops.
-</section>
-<section data-transition="fade-in slide-out">
-    (Passengers entering and leaving)
-</section>
-<section data-transition="slide">
-    And it starts again.
-</section>
-```
-
-* Ejemplo: [ejemplo11_transiciones.html](ejemplo11_transiciones.html)
-  </script>
-
- </section>
-
-</section>
-<!--FIN TRANSICIONES-->
-
-<!--NAVEGACION-->
-<section>
- <section id="navegacion">
-  <h2>Navegaci&oacute;n</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-
-### Navegación
-
-* Es sencillo navegar entre transparencias
- * Añadiendo el atributo `id` a `<section>`
-
-```
-<section id="some-slide">
-```
-
-* Para referenciar:
-
-```
-<a href="#/2/2">Enlace a slide 2/2</a>
-<a href="#/some-slide">Enlace a slide some-slide</a>
-```
-
-* Ejemplo: [ejemplo12_navegacion.html](ejemplo12_navegacion.html)
-  </script>
-
- </section>
-
-
-</section>
-<!--FIN NAVEGACION-->
-
-<!--FRAGMENTOS-->
-<section>
- <section id="fragmentos">
-  <h2>Fragmentos</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-
-### Fragmentos (I)
-
-* Permiten resaltar elementos individuales en una transparencia 
-* Al visualizar la transparencia, cada elemento de clase `fragment` será resaltado secuencialmente
-* Por defecto, cada fragmento comienza invisible y se muestra
-* Es posible modificar este comportamiento (ver siguiente slide)
-
-  </script>
-
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-
-### Fragmentos (II)
-
-```
-<section>
-    <p class="fragment grow">grow</p>
-    <p class="fragment shrink">shrink</p>
-    <p class="fragment fade-out">fade-out</p>
-    <p class="fragment fade-up">fade-up (also down, left and right!)</p>
-    <p class="fragment current-visible">visible only once</p>
-    <p class="fragment highlight-current-blue">blue only once</p>
-    <p class="fragment highlight-red">highlight-red</p>
-    <p class="fragment highlight-green">highlight-green</p>
-    <p class="fragment highlight-blue">highlight-blue</p>
-</section>
-```
-
-* Ejemplo: [ejemplo13_fragmentos.html](ejemplo13_fragmentos.html)
-  </script>
-
- </section>
-
-</section>
-<!--FIN FRAGMENTOS-->
-
-<!--ENLACES-->
-<section>
- <section id="enlaces">
-  <h2>Más informaci&oacute;n</h2>
- </section>
-
- <section data-markdown>
-  <script type="text/template"> 
-## Información adicional
-
-* [Documentación oficial](https://github.com/hakimel/reveal.js/blob/master/README.md)
-* Existen muchos ejemplos en la web
- * Al ser HTML5, podemos visualizar su código fuente en nuestro navegador!
-  </script>
- </section>
-
-</section>
-
-<!--FIN ENLACES-->
-
-
-      </div>
-     </div>
-
-     <script src="lib/js/head.min.js"></script>
-     <script src="js/reveal.js"></script>
-
-     <script>
+    <div class="reveal">
+        <div class="slides">
+            <section id="titulo" data-background-color="#262b6a">
+                <section data-transition="fade">
+                    <hr>
+                    <h1>
+                        <font color="#e6e4d6">EL ARTE GRIEGO</font>
+                    </h1>
+                    <hr>
+                    <h2>Aitana García</h2>
+                    <hr>
+                    <h3>Marzo 2023</h3>
+                </section>
+
+                <section
+                    data-background-image="https://i.pinimg.com/564x/e9/4c/06/e94c060a5db85bb062c31159ef79f5d4.jpg">
+                    <h3>
+                        <font color="#e6e4d6">Índice</font>
+                    </h3>
+                    <ol>
+                        <font color="#e6e4d6">
+                            <li><a href="#/rasgos">Rasgos generales</a></li>
+                            <li><a href="#/arquitectura">La arquitectura</a></li>
+                            <li><a href="#/escultura">La escultura</a></li>
+                        </font>
+                    </ol>
+                </section>
+
+
+            </section>
+
+            <section id="rasgos">
+                <section data-background-color="#7685c2">
+                    <section>
+                        <font color="#262c69">
+                            <h3>
+                                <font color="#262c69">Rasgos generales del arte griego</font>
+                            </h3>La vida griega gira en torno al hombre, por lo que la
+                            principal preocupación artística será lograr un arte a la <p class="fragment grow">medida
+                                humana.</p>
+                        </font>
+                    </section>
+                    <img src="https://www.dsigno.es/blog/wp-content/uploads/2017/01/canon-7-medio.jpg" width="300">
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                         ## Los **rasgos básicos** del arte griego son:
+
+                         * A escala humana 
+                         * Racional 
+                         * Naturalista 
+                         * Búsqueda de la belleza a través 
+                         del **orden, la armonía y la proporción**
+                         * En constante **evolución** 
+                        </script>
+                    </section>
+                </section>
+
+            </section>
+
+            <section id="arquitectura" data-transition-speed="slow">
+                <section data-background-transition="zoom"
+                    data-background-image="https://i.pinimg.com/564x/ce/e7/09/cee709e0e47f3c11e9b0c5dcb42ee1a3.jpg"
+                    data-background-size="50%">
+                    <h3>
+                        <font color="#edf1f1">La arquitectura</font>
+                    </h3>
+                </section>
+                <section data-background-transition="fade-in zoom-out"
+                    data-background-image="https://i.pinimg.com/564x/da/df/df/dadfdf9009ce8b30d9e00c2516f7c209.jpg">
+                    <h3>
+                        <font color="#1c2253">Orden arquitectónico</font>
+                    </h3>
+                    <font color="#4f64a8">Los elementos de los edificios deben tener una
+                        forma y tamaño determinados por unas reglas.
+                        <p class="fragment fade-down"><b>Orden Corintio</b>: Es similar al jónico, se diferencia en el
+                            capitel decorado con hojas de acanto.</p>
+                    </font>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Orden arquitectónico
+
+                        |Dórico|Jónico|
+                        |-----|-----|
+                        |Sobrio|Esbelto|
+                        |**Basamento** dividido en gradas|**Basamento** dividido en gradas|
+                        |**Columna** sin basa|**Columna** con basa|
+                        |**Fuste** estriado|**Fuste** acanalado|
+                        |**Capitel** dividido en ábaco y equino|**Capitel** con volutas|    
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Orden arquitectónico
+                        
+                        |Dórico|Jónico|
+                        |-----|-----|            
+                        |**Arquitrabe** liso|**Arquitrabe** dividido en tres bandas|
+                        |**Friso** dividido en triglifos y metopas|**Friso** continuo decorado con relieves|
+                    </script>
+                </section>
+                <section data-background-video="columnas.mp4" data-background-video-loop="false">
+                    <h2 class="fragment current-visible">Columnas jónicas, dóricas y corintias</h2>
+                </section>
+                <section data-transition="slide-in fade-out" data-background-color="#7a87bd">
+                    <h2>
+                        <font color="#354a9c">La Acrópolis Ateniense</font>
+                    </h2>
+                    La arquitectura griega alcanzó su plenitud en <a href="https://es.wikipedia.org/wiki/Acr%C3%B3polis_de_Atenas">la Acrópolis</a>, con:
+                    <section>
+                        <ul>
+                            <li class="fragment fade-left">El Partenón</li>
+                            <li class="fragment fade-right">El Erecteion</li>
+                            <li class="fragment fade-left">El templo de Atenea Niké</li>
+                            <li class="fragment fade-right">Los Propileos</li>
+                        </ul>
+                    </section>
+                </section>
+                <section data-transition="slide">
+                    <h2>
+                        <font color="#313e89">El Partenón</font>
+                    </h2>
+                    <font color="#314592">Es el templo griego más perfecto. El templo rectangular tiene columnas en
+                        proporción 8x17.
+                        Fue encargado por la polis de Atenas en honor de su diosa protectora como ofrenda tras la
+                        victoria sobre los persas en las <a href="https://es.wikipedia.org/wiki/Guerras_m%C3%A9dicas">Guerras Médicas.</a>Puedes hacer Alt+click para ampliar la imagen.</font>
+                    <center><img src="https://i.pinimg.com/564x/95/1f/c4/951fc4c281578a1504663a031122b6de.jpg"
+                            width="200"></center>
+                </section>
+                <section>
+                    <h2>La Arquitectura Helenística</h2>
+                    <h3>Mezcla de modelos clásicos y orientales que se reflejó en:</h3>
+                    <ol>
+                        <li class="fragment highlight-red">Monumentalidad de los edificios</li>
+                        <li class="fragment highlight-blue">Uso del orden corintio</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>Son buenos ejemplos:</h3>
+                    <ul class="fragment shrink">
+                        <li>El Altar de Zeus en Pérgamo</li>
+                        <li>El Mausoleo de Halicarnaso</li>
+                    </ul>
+                    <img src="https://i.pinimg.com/564x/92/d9/79/92d979154d840bd5af8f86519b2723f4.jpg" width="300">
+                </section>
+            </section>
+
+            <section id="escultura" data-transition="zoom-in fade-out">
+                <section data-background-transition="zoom"
+                    data-background-image="https://i.pinimg.com/564x/d3/7d/98/d37d987105edaa5c205912a888570134.jpg"
+                    data-background-size=650px>
+                    <h3>
+                        <font color="#2e0014">La escultura</font>
+                    </h3>
+                </section>
+                <section data-background-color="#202862">
+                    <font color="#4f64a8"><h2 class="fragment shrink">Características generales</h2>
+                    <ul>
+                        <li>Materiales: bronce, piedra y mármol</li>
+                        <li>Representación de la figura humana</li>
+                        <li>Naturalismo y dominio de la anatomía</li>
+                        <li>Búsqueda de la belleza basada en las proporciones a través de un canon</li>
+                        <li>Esculturas de bulto redondo y relieves</li>
+                    </ul></font>
+                </section>
+                <section data-background-image="https://i.pinimg.com/564x/de/84/be/de84be38c2e7b45905163366d2fd7cc3.jpg"
+                    data-background-repeat="repeat" data-background-size="100px">
+                    <h1>Etapas</h1>
+                </section>
+                <section data-background-color="#a2acd4" data-transition="slide-in zoom-out">
+                    <h2><font color="#232a59">Epoca arcaica (siglos VIII-VI) a.C</font></h2>
+                    <img src="https://i.pinimg.com/564x/06/4e/a7/064ea78b3c429d9d1641be016cc361a7.jpg" width="130px">
+                    Los <b>kuroi</b> y las <b>kurai</b> presentan:
+                    <ul>
+                        <li class="fragment fade-out">Rigidez</li>
+                        <li class="fragment fade-out">Frontalidad</li>
+                        <li class="fragment fade-out">Anatomía esquemática</li>
+                    </ul>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Epoca clásica (siglos V-IV a.C.)
+
+                        1. La transición al clasicismo
+                            * El Auriga de Delfos
+                            * Frontón del templo de Zeus en Olimpia 
+                        2. El clasicismo pleno: segunda mitad del siglo V
+                            * Mayor dominio técnico
+                            * Mayor naturalismo
+                            * Belleza ideal física y también espiritual
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Escultores del clasicismo pleno
+
+                        |Mirón|Policleto|Fidias|
+                        |-----|-----|-----| 
+                        |Broncista|Broncista y teórico|Director de las obras la Acrópolis|
+                        |Discóbolo|Doríforo y Diadumenos|Atenea Partenos|
+                        |Figura con gran movimiento|Desarrolla el contraposto|Técnica de los paños mojados|
+                    </script>
+                </section>
+                <section data-background-color="#e5e8e2">
+                    <img src="http://4.bp.blogspot.com/-tRdRGIJSGs4/VlLAfJAOeUI/AAAAAAAAARg/oft7oKcHGeA/s1600/policleto_doriforo.jpg"
+                        width="30%">
+                    <center><font color="#3f4b84">Policleto fija el canon de belleza que establece que la altura total debe ser 7 veces la
+                        altura de la cabeza.</font></center>
+                </section>
+                <section data-background-color="#6e7daf" data-transition="zoom-in fade-out">
+                    <h2><font color="#f0f0f0">El clasicismo tardío del siglo IV</font></h2>
+                    <ul>
+                        <li>Scopas</li>
+                        <li>Praxiteles</li>
+                        <li>Lisipo</li>
+                    </ul>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Hermes_di_Prassitele%2C_at_Olimpia%2C_front.jpg"
+                        width="200px">
+                </section>
+                <section
+                    data-background-image="http://1.bp.blogspot.com/-rjyCIyieSNU/VWRpY-jTAgI/AAAAAAABB5w/U6t5iSPTTVA/s1600/laaaa.jpg"
+                    width="70%">
+                    <font color="#d20a11">
+                        <h2>Epoca Helenística siglos III-II</h2>
+                        <ol>
+                            <li class="fragment highlight-blue">Corriente clasicista: Venus de Milo, Victoria de
+                                Samotracia</li>
+                            <li class="fragment highlight-green">Influencia oriental:</li>
+                            <ul>
+                                <li class="fragment current-visible">Realismo y expresividad extremos</li>
+                                <li class="fragment current-visible">Mayor movimiento</li>
+                                <li class="fragment current-visible">Temas muy variados</li>
+                            </ul>
+                        </ol>
+                    </font>
+                </section>
+                <section>
+                    Las obras más representativas son Laoconte y sus hijos del escultor Agesandro de Rodas y Los
+                    relieves del Altar de Zeus de Pérgamo.
+                    <center>
+                        <video autoplay="true" loop="true" width="750" controls>
+                            <source src="epocahelenistica.mp4" type="video/mp4">
+                        </video>
+                    </center>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
         Reveal.initialize({
-                    controls: true,
-                    progress: true,
-                    history: true,
-                    keyboard: true,
-     
-                    dependencies: [
-            		// Interpret Markdown in <section> elements
-            		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    ]
-                });
-     </script>
+            slideNumber: true,
 
-     </body>
+            autoSlide: 9000,
 
-    </html>
+            transition: 'fade',
+
+            dependencies: [
+                { src: 'plugin/search/search.js', async: true },
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } }
+            ]
+        });
+    </script>
+</body>
+
+</html>
